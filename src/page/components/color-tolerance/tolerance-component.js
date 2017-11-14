@@ -1,5 +1,5 @@
 import React from 'react';
-import { TOLERANCE } from '../color-map';
+import PropTypes from 'prop-types';
 
 export default class ToleranceComponent extends React.Component {
 
@@ -21,4 +21,10 @@ export default class ToleranceComponent extends React.Component {
       </div>
     );
   }
+}
+
+ToleranceComponent.propTypes = {
+  left: PropTypes.string,
+  values: PropTypes.object,
+  handleSingle: PropTypes.func
 }

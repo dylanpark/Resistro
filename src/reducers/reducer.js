@@ -18,7 +18,7 @@ var holdState = initialState;
 function reducer(state=initialState, action) {
   switch (action.type) {
     case actionConst.findColor: {
-      var newState = holdState = {
+      let newState = holdState = {
         ...state,
         error: null,
         value: null,
@@ -29,7 +29,7 @@ function reducer(state=initialState, action) {
       return newState;
     }
     case actionConst.findColorError: {
-      var newState = holdState = {
+      let newState = holdState = {
         ...state,
         opacity: 0.5,
         error: action.error,
@@ -39,7 +39,7 @@ function reducer(state=initialState, action) {
       return newState;
     }
     case actionConst.solveColor: {
-      var newState = {
+      let newState = {
         ...state,
         error: null,
         opacity: 1,
@@ -52,7 +52,7 @@ function reducer(state=initialState, action) {
       return newState;
     }
     case actionConst.solveTolerance: {
-      var newState = {
+      let newState = {
         ...state,
         error: null,
         tolerance: action.tolerance,

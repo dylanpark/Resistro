@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import ColorStrip from './color-strip/color-strip';
 // import $ from 'jquery';
 
@@ -41,4 +42,13 @@ export default class Resistor extends React.Component {
       </div>
     )
   }
+}
+
+Resistor.propTypes = {
+  opacity: PropTypes.string,
+  colorCode: PropTypes.array,
+  solveColor: PropTypes.func,
+  revertState: PropTypes.func,
+  colorTolerance: PropTypes.string,
+  solveTolerance: PropTypes.func
 }

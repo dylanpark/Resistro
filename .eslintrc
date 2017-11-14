@@ -14,7 +14,9 @@
         "react"
     ],
     "rules": {
-        "strict": 0
+        "strict": 0,
+        "react/no-find-dom-node": 0,
+        "react/no-unknown-property": 0
     },
     "globals": {
         "document": false

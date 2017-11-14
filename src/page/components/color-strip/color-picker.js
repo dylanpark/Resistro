@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import { MAP, COLOR_MULT, MULT, TOLERANCE } from '../color-map';
+import { MAP, COLOR_MULT, TOLERANCE } from '../color-map';
 
 export default class ColorPicker extends React.Component {
   render() {
@@ -37,6 +38,14 @@ export default class ColorPicker extends React.Component {
   }
 }
 
+ColorPicker.propTypes = {
+  type: PropTypes.string,
+  handleSingle: PropTypes.func,
+  revertState: PropTypes.func,
+  pageX: PropTypes.string,
+  pageY: PropTypes.string
+}
+
 class SingleColor extends React.Component {
 
   render() {
@@ -60,4 +69,9 @@ class SingleColor extends React.Component {
       </div>
     );
   }
+}
+
+SingleColor.propTypes = {
+  color: PropTypes.string,
+  handleSingle: PropTypes.func
 }

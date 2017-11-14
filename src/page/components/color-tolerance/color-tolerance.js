@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { TOLERANCE } from '../color-map';
 import ToleranceComponent from './tolerance-component';
 
@@ -67,4 +68,9 @@ export default class ColorTolerance extends React.Component {
       </div>
     )
   }
+}
+
+ColorTolerance.propTypes = {
+  solveTolerance: PropTypes.func,
+  val: PropTypes.string
 }

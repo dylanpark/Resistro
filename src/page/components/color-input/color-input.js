@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { MAP, MULT } from '../color-map';
-import ColorStrip from '../color-strip/color-strip.js';
 
 export default class ColorInput extends React.Component {
 
@@ -14,7 +14,7 @@ export default class ColorInput extends React.Component {
   
   //Right before the component loads
   componentWillmount() {
-    this.state = {valueLength: 4};
+    this.setState({valueLength: 4});
   }
 
   //As soon as the webpage load
@@ -35,7 +35,6 @@ export default class ColorInput extends React.Component {
   }
 
   updateResistor(e) {
-    var node = ReactDOM.findDOMNode(this);
     var inputEl = e.target;
     var cloneValue = inputEl.value;
 
@@ -73,7 +72,7 @@ export default class ColorInput extends React.Component {
 
     this.setState({valueLength: e.target.value.length});
 
-    var resistance = this.calcResistance(resistanceValue, e);
+    var resistance = this.calcResistance(resistanceValue);
     resistance.inputValue = cloneValue;
     if (resistance.err) {
       this.props.findColorError(resistance);
@@ -82,7 +81,7 @@ export default class ColorInput extends React.Component {
     }
   }
 
-  calcResistance(resistanceValue, e) {
+  calcResistance(resistanceValue) {
     var colorCode = {};
     var testVal = parseFloat(resistanceValue, 10).toString();
     const inputVal = testVal == 'NaN' ? '' : testVal;
@@ -142,7 +141,13 @@ export default class ColorInput extends React.Component {
     }
 
     return (
-      <input class='color-input' {...attr} />
+      <input className='color-input' {...attr} />
     );
   }
+}
+
+ColorInput.propTypes = {
+  findColorError: PropTypes.func,
+  findColor: PropTypes.func,
+  value: PropTypes.string
 }

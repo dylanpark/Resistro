@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import ColorPicker from './color-picker';
 import { MAP, MULT, TOLERANCE } from '../color-map';
@@ -114,5 +115,13 @@ export default class ColorStrip extends React.Component {
       </div>
     );
   }
+}
+
+ColorStrip.propTypes = {
+  revertState: PropTypes.func,
+  solveTolerance: PropTypes.func,
+  solveColor: PropTypes.func,
+  type: PropTypes.string,
+  color: PropTypes.string
 }
 

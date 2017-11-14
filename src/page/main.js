@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Resistor from './components/resistor';
 import ColorInput from './components/color-input/color-input';
 import ColorTolerance from './components/color-tolerance/color-tolerance.js';
@@ -27,4 +28,17 @@ export default class Main extends React.Component {
       </div>
     );
   }
+}
+
+Main.propTypes = {
+  revertState: PropTypes.func,
+  colorTolerance: PropTypes.string,
+  solveTolerance: PropTypes.func,
+  solveColor: PropTypes.solveColor,
+  colorCode: PropTypes.array,
+  opacity: PropTypes.string,
+  value: PropTypes.string,
+  findColor: PropTypes.func,
+  findColorError: PropTypes.func,
+  tolerance: PropTypes.string
 }
