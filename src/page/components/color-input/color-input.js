@@ -141,7 +141,7 @@ export default class ColorInput extends React.Component {
     }
 
     return (
-      <input className='color-input' {...attr} />
+      <input class='color-input' {...attr} />
     );
   }
 }
