@@ -22,7 +22,7 @@ module.exports = {
         use: ['babel-loader', 'eslint-loader']
       },
       {
-        test: /\.scss$/,        
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: [{loader: 'style-loader'}],
           use: [
@@ -32,7 +32,7 @@ module.exports = {
         })
       }
     ]
-  },  
+  },
   plugins: debug ? [
     new ExtractTextPlugin('style.css'),
     new HtmlWebpackPlugin({
