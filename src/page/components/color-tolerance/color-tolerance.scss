@@ -9,14 +9,14 @@
     position: relative;
     z-index: 0;
   }
-  
+
   .tolerance::before {
     content:  '±';
     font-size: 30px;
     transform: translateY(-3px);
     margin-right: 5px;
   }
-  
+
   .tolerance:hover {
     background-color: #cce7ff;
   }

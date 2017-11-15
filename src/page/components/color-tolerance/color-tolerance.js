@@ -14,8 +14,8 @@ export default class ColorTolerance extends React.Component {
 
   componentWillMount() {
     document.addEventListener('click', this.checkTarget, false);
-  }   
- 
+  }
+
   checkTarget(e) {
     const target = ReactDOM.findDOMNode(this);
     if (!target.contains(e.target)) {
@@ -56,12 +56,12 @@ export default class ColorTolerance extends React.Component {
       left = left + 'px'; // convert int to to string
       toleranceComponent = <ToleranceComponent values={values}
         handleSingle={this.handleSingle} left={left}
-        switchState={this.switchState}/>; 
+        switchState={this.switchState}/>;
     }
 
     return (
-      <div class='tolerance' 
-        onClick={this.switchState.bind(this, true)}> 
+      <div class='tolerance'
+        onClick={this.switchState.bind(this, true)}>
         {this.props.val}
         {toleranceComponent}
       </div>

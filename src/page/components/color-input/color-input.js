@@ -11,7 +11,7 @@ export default class ColorInput extends React.Component {
     this.updateResistor = this.updateResistor.bind(this);
     this.calcResistance = this.calcResistance.bind(this);
   }
-  
+
   //Right before the component loads
   componentWillmount() {
     this.state = {valueLength: 4};
@@ -20,8 +20,8 @@ export default class ColorInput extends React.Component {
   //As soon as the webpage load
   componentDidMount() {
     this.el = ReactDOM.findDOMNode(this);
-    //Make the input element editable right off the start 
-    this.el.focus(); 
+    //Make the input element editable right off the start
+    this.el.focus();
     //This is to always have focus on input element
     document.addEventListener('click', this.focusOnInput, false);
   }
@@ -46,7 +46,7 @@ export default class ColorInput extends React.Component {
       var isPrefixCharacter = (['k', 'K', 'M'].indexOf(cloneValue[i]) + 1);
       if ((isNaN(parseInt(cloneValue[i])) && cloneValue[i] !== '.'
           && !isPrefixCharacter)
-          || (cloneValue[i] === '.' && decimalIndex) 
+          || (cloneValue[i] === '.' && decimalIndex)
           || (isPrefixCharacter && prefixIndex)
           || (prefixIndex < i)) {
         cloneValue = cloneValue.slice(0, i) + cloneValue.slice(i+1, cloneValue.length);
@@ -62,7 +62,7 @@ export default class ColorInput extends React.Component {
           resistanceValue = (parseFloat(cloneValue) * 1000000).toString();
         }
         if (decimalIndex + 1 === prefixIndex) {
-          cloneValue = cloneValue.slice(0, decimalIndex) + 
+          cloneValue = cloneValue.slice(0, decimalIndex) +
             cloneValue.slice(prefixIndex, prefixIndex + 1);
         }
       }
@@ -90,7 +90,7 @@ export default class ColorInput extends React.Component {
       return {err: 'Not a valid resistor'};
     }
     var ohm = testVal;
-    
+
     if (ohm.length == 0 || parseFloat(ohm) === 0) {
       return {err: 'Not a valid resistor'};
     }
@@ -105,7 +105,7 @@ export default class ColorInput extends React.Component {
         decimalCount++;
       }
       if (decimalCount == 1) {
-        multColor = ohm.length === 1 ? 'silver' : 'gold'; 
+        multColor = ohm.length === 1 ? 'silver' : 'gold';
         secondBandColor = ohm.length === 1 ? 'black' : null;
       } else if (decimalCount == 2) {
         multColor = 'silver';
@@ -126,7 +126,7 @@ export default class ColorInput extends React.Component {
 
   render() {
     const style = {
-      width: 24.25 * (this.props.value ? this.props.value.length : (this.state ? this.state.valueLength : 4)) 
+      width: 24.25 * (this.props.value ? this.props.value.length : (this.state ? this.state.valueLength : 4))
         + 20 + 'px'
     }
 

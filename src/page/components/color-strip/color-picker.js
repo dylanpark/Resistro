@@ -26,11 +26,11 @@ export default class ColorPicker extends React.Component {
 
     for (var key in colorMap) {
       colors.push(
-          <SingleColor color={key} key={colorMap[key]} 
+          <SingleColor color={key} key={colorMap[key]}
             handleSingle={this.props.handleSingle}/>);
     }
     return (
-      <div class='color-picker' style={style} onMouseLeave={this.props.revertState}> 
+      <div class='color-picker' style={style} onMouseLeave={this.props.revertState}>
         {colors}
       </div>
     )
@@ -51,12 +51,12 @@ class SingleColor extends React.Component {
       style = {
         background: this.props.color
       };
-    }      
+    }
     return (
-      <div class={className} data-state={this.props.color} 
+      <div class={className} data-state={this.props.color}
         onClick={this.props.handleSingle}
         onMouseEnter={this.props.handleSingle}
-        style={style}> 
+        style={style}>
       </div>
     );
   }

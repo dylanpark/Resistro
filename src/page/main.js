@@ -20,7 +20,7 @@ export default class Main extends React.Component {
             findColor={this.props.findColor}
             findColorError={this.props.findColorError}/>
           <div class='ohm-symbol'>Ω</div>
-          <ColorTolerance 
+          <ColorTolerance
             val={this.props.tolerance}
             solveTolerance={this.props.solveTolerance}/>
         </div>

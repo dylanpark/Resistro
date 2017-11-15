@@ -37,7 +37,7 @@ export default class ColorStrip extends React.Component {
     }
     this.setState({colorPickerActive: false});
   }
-  
+
   removeColorPicker(e) {
     if (e.type != 'mouseenter') {
       this.setState({colorPickerActive: false});
@@ -49,12 +49,12 @@ export default class ColorStrip extends React.Component {
     var colorPicked = e.target.dataset.state;
     bandEl.dataset.color = colorPicked;
     if (bandEl.dataset.value === 'tolerance') {
-      var toleranceMap = _.invert(TOLERANCE); 
+      var toleranceMap = _.invert(TOLERANCE);
       this.props.solveTolerance({
         eventType: e.type,
         tolerance: toleranceMap[colorPicked],
         colorTolerance: colorPicked
-      }); 
+      });
       this.removeColorPicker(e);
       return;
     }
@@ -92,7 +92,7 @@ export default class ColorStrip extends React.Component {
 
     var className;
     if (this.props.type === 'multiplier') {
-      className = 'band band-main multiplier'; 
+      className = 'band band-main multiplier';
     } else if (this.props.type === 'tolerance') {
       className = 'band band-tolerance';
     } else {
@@ -105,7 +105,7 @@ export default class ColorStrip extends React.Component {
     } else if (this.props.color === 'none') {
       className += ' none-strip';
     } else {
-      style = {background: this.props.color};        
+      style = {background: this.props.color};
     }
 
     return (

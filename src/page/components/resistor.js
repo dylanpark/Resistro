@@ -10,7 +10,7 @@ export default class Resistor extends React.Component {
 
     const strips = [];
     for (var i = 1; i <= 3; i++) {
-      strips.push(<ColorStrip key={i} 
+      strips.push(<ColorStrip key={i}
           color={this.props.colorCode[i]} solveColor={this.props.solveColor}/>);
     }
 
@@ -34,7 +34,7 @@ export default class Resistor extends React.Component {
         </div>
         <div class='resistor-end'>
           <ColorStrip color={this.props.colorTolerance}
-            solveTolerance={this.props.solveTolerance} 
+            solveTolerance={this.props.solveTolerance}
             revertState={this.props.revertState} type="tolerance" />
         </div>
         <div class='pin pin-right'></div>

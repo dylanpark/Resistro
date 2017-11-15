@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: center;
   }
-  
+
   .ohm-symbol {
     font-size: 30px;
     display: flex;
@@ -13,22 +13,22 @@
     align-items: center;
     margin-right: 15px;
   }
-  
+
   #app {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100vh;
   }
-  
+
   .band {
     display: inline-block;
     width: 30px;
     height: 120px;
     cursor: pointer;
     transition: background 0.4s ease-in-out;
-  } 
-  
+  }
+
   div {
     user-select: none;
     font-family: 'Roboto', sans-serif;
