@@ -34,7 +34,7 @@ Main.propTypes = {
   revertState: PropTypes.func,
   colorTolerance: PropTypes.string,
   solveTolerance: PropTypes.func,
-  solveColor: PropTypes.solveColor,
+  solveColor: PropTypes.func,
   colorCode: PropTypes.array,
   opacity: PropTypes.string,
   value: PropTypes.string,
