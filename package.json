@@ -16,10 +16,14 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot --port 8000",
     "build:dev": "webpack --env=dev --progress --profile --colors --bail",
     "build:prod": "webpack --env=prod --progress --profile --colors --bail",
-    "build": "NODE_ENV=production webpack -p"
+    "build": "NODE_ENV=production webpack -p",
+    "clean:dist": "rm -rf dist/",
+    "clean:node": "rm -rf node_modules/",
+    "clean:hard": "npm run clean:dist && npm run clean:node",
+    "clean": "npm run clean:dist",
+    "start": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot --port 8000"
   },
   "repository": {
     "type": "git",
