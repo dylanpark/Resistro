@@ -23,6 +23,7 @@
     "clean:node": "rm -rf node_modules/",
     "clean:hard": "npm run clean:dist && npm run clean:node",
     "clean": "npm run clean:dist",
+    "start": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot --port 8000",
     "test": "jest --coverage"
   },
   "repository": {
