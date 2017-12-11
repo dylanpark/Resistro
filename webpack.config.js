@@ -4,6 +4,9 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+let extractCss = new ExtractTextPlugin('style.css');
+let generateHtml = new HtmlWebpackPlugin({ template: 'src/index.html' });
+
 module.exports = {
   devtool: debug ? "inline-sourcemap" : null,
   entry: "./src/index.js",
@@ -23,26 +26,19 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
+        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: [{loader: 'style-loader'}],
-          use: [
-            {loader: 'css-loader'},
-            {loader: 'sass-loader'}
-          ]
-        })
+          use: ['css-loader', 'sass-loader']
+        }))
       }
     ]
   },
   plugins: debug ? [
-    new ExtractTextPlugin('style.css'),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    })
+    extractCss,
+    generateHtml
   ] : [
-    new ExtractTextPlugin('style.css'),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    }),
+    extractCss,
+    generateHtml,
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production")
