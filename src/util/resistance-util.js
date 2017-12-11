@@ -16,6 +16,7 @@ export function calcResistance(resistanceValue) {
   if (ohm.indexOf('.') + 1) {
     let decimalCount = 0;
     var multColor;
+    var firstBandColorNull = false;
     var secondBandColor;
     while (ohm.indexOf('.') + 1) {
       ohm = (parseFloat(ohm, 10) * 10).toString();
@@ -26,11 +27,14 @@ export function calcResistance(resistanceValue) {
       secondBandColor = ohm.length === 1 ? 'black' : null;
     } else if (decimalCount == 2) {
       multColor = 'silver';
-      secondBandColor = ohm.length === 1 ? 'black' : null;
+      firstBandColorNull = ohm.length === 1;
+      secondBandColor = ohm.length === 1 ? MAP[ohm[0]] : null;
+    } else {
+      return {err: 'Not a valid resistor'};
     }
   }
 
-  colorCode['1'] = MAP[ohm[0]];
+  colorCode['1'] = firstBandColorNull ? null : MAP[ohm[0]];
   colorCode['2'] = secondBandColor || (testVal.length === 1 ? 'black' : MAP[ohm[1]]);
   ohm = ohm.substring(2);
 
