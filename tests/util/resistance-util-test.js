@@ -25,7 +25,7 @@ describe('calculate resistance', ()=>{
       expect(calcResistance('1.5')).toEqual(expected);
     });
     test('7 should return purple-black-gold', ()=>{
-      let expected = createColorCode('purple', 'black', 'gold');
+      let expected = createColorCode('blueviolet', 'black', 'gold');
       expect(calcResistance('7')).toEqual(expected);
     });
     test('0.1 should return brown-black-silver', ()=>{
