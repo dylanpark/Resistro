@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { MAP, MULT } from '../color-map';
+import { calcResistance } from '../../../util/resistance-util.js';
 
 export default class ColorInput extends React.Component {
 
@@ -9,7 +9,6 @@ export default class ColorInput extends React.Component {
     super();
     this.focusOnInput = this.focusOnInput.bind(this);
     this.updateResistor = this.updateResistor.bind(this);
-    this.calcResistance = this.calcResistance.bind(this);
   }
 
   //Right before the component loads
@@ -72,55 +71,13 @@ export default class ColorInput extends React.Component {
 
     this.setState({valueLength: e.target.value.length});
 
-    var resistance = this.calcResistance(resistanceValue);
+    var resistance = calcResistance(resistanceValue);
     resistance.inputValue = cloneValue;
     if (resistance.err) {
       this.props.findColorError(resistance);
     } else {
       this.props.findColor(resistance);
     }
-  }
-
-  calcResistance(resistanceValue) {
-    var colorCode = {};
-    var testVal = parseFloat(resistanceValue, 10).toString();
-    const inputVal = testVal == 'NaN' ? '' : testVal;
-    if (inputVal === '') {
-      return {err: 'Not a valid resistor'};
-    }
-    var ohm = testVal;
-
-    if (ohm.length == 0 || parseFloat(ohm) === 0) {
-      return {err: 'Not a valid resistor'};
-    }
-
-
-    if (ohm.indexOf('.') + 1) {
-      let decimalCount = 0;
-      var multColor;
-      var secondBandColor;
-      while (ohm.indexOf('.') + 1) {
-        ohm = (parseFloat(ohm, 10) * 10).toString();
-        decimalCount++;
-      }
-      if (decimalCount == 1) {
-        multColor = ohm.length === 1 ? 'silver' : 'gold';
-        secondBandColor = ohm.length === 1 ? 'black' : null;
-      } else if (decimalCount == 2) {
-        multColor = 'silver';
-        secondBandColor = ohm.length === 1 ? 'black' : null;
-      }
-    }
-
-    colorCode['1'] = MAP[ohm[0]];
-    colorCode['2'] = secondBandColor || (testVal.length === 1 ? 'black' : MAP[ohm[1]]);
-    ohm = ohm.substring(2);
-
-    if (!(ohm in MULT)) {
-      return {err: 'Not a valid resistor'};
-    }
-    colorCode['3'] = multColor || (testVal.length === 1 ? 'gold' : MULT[ohm]);
-    return {colorCode: colorCode};
   }
 
   render() {
