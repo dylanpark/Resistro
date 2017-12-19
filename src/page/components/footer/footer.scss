@@ -1,26 +1,26 @@
 #footer {
-  margin-top: 100px;
+  margin-top: 200px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  a {
-    color: grey;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  font-family: 'Roboto', sans-serif;
+  font-size: 10pt;
+  color: grey;
+  
   ul.horizontal {
+    width: 20%;
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding-left: 0;
-    li {
-      font-family: 'Roboto', sans-serif;
-      font-size: 10pt;
+
+    a {
+      color: grey;
+      text-decoration: none;
+      &:hover {
+        font-weight: bold;
+      }
     }
-  }
-  .lg-margin {
-    margin: 64px;
   }
 }

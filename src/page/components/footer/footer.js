@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 const footerLinkMap =   {
-  'about': 'https://github.com/dylanpark/resistro#about',
-  'disclaimer': 'https://github.com/dylanpark/resistro/blob/dev/LICENSE#L15',
-  'github': 'https://github.com/dylanpark/resistro'
+  'About': 'https://github.com/dylanpark/resistro#about',
+  'Disclaimer': 'https://github.com/dylanpark/resistro/blob/dev/LICENSE#L15',
+  'Github': 'https://github.com/dylanpark/resistro'
 }
 
 export default class Footer extends React.Component {
@@ -23,12 +23,13 @@ class LinkList extends React.Component {
     const linkItems = _.map(this.props.links, (url, text) =>
       <LinkItem key={text} text={text} link={url} />
     );
-
-    return (
-      <ul class='horizontal'>
-        {linkItems}
-      </ul>
-    )
+    
+    return [
+        <span class='copyright'> Copyright © Resistro 2017 </span>,
+        <ul class='horizontal'>
+          {linkItems}
+        </ul>
+    ];
   }
 }
 
@@ -40,7 +41,7 @@ class LinkItem extends React.Component {
   render() {
     return (
       <li>
-        <a class='lg-margin' href={this.props.link}>{this.props.text}</a>
+        <a href={this.props.link}>{this.props.text}</a>
       </li>
     )
   }
