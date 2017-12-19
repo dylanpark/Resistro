@@ -1,0 +1,26 @@
+#footer {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    color: grey;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  ul.horizontal {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    li {
+      font-family: 'Roboto', sans-serif;
+      font-size: 10pt;
+    }
+  }
+  .lg-margin {
+    margin: 64px;
+  }
+}
