@@ -1,4 +1,5 @@
-# Resistro
+# Resistro [![Build Status](https://travis-ci.org/dylanpark/resistro.png?branch=dev)](https://travis-ci.org/dylanpark/resistro)
+
 
 ## About
 
