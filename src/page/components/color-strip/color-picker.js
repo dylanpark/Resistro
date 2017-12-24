@@ -42,8 +42,8 @@ ColorPicker.propTypes = {
   type: PropTypes.string,
   handleSingle: PropTypes.func,
   revertState: PropTypes.func,
-  pageX: PropTypes.string,
-  pageY: PropTypes.string
+  pageX: PropTypes.number,
+  pageY: PropTypes.number
 }
 
 class SingleColor extends React.Component {

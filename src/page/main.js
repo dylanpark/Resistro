@@ -19,7 +19,7 @@ export default class Main extends React.Component {
             opacity={this.props.opacity}/>
           <div class='input-container'>
             <ColorInput
-              defaultValue={this.props.value}
+              value={this.props.value}
               findColor={this.props.findColor}
               findColorError={this.props.findColorError}/>
             <div class='ohm-symbol'>Ω</div>
