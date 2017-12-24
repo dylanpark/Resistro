@@ -19,7 +19,7 @@ export default class Main extends React.Component {
             opacity={this.props.opacity}/>
           <div class='input-container'>
             <ColorInput
-              value={this.props.value}
+              defaultValue={this.props.value}
               findColor={this.props.findColor}
               findColorError={this.props.findColorError}/>
             <div class='ohm-symbol'>Ω</div>
@@ -39,8 +39,8 @@ Main.propTypes = {
   colorTolerance: PropTypes.string,
   solveTolerance: PropTypes.func,
   solveColor: PropTypes.func,
-  colorCode: PropTypes.array,
-  opacity: PropTypes.string,
+  colorCode: PropTypes.object,
+  opacity: PropTypes.number,
   value: PropTypes.string,
   findColor: PropTypes.func,
   findColorError: PropTypes.func,

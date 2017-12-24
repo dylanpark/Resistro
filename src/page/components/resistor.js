@@ -45,8 +45,8 @@ export default class Resistor extends React.Component {
 }
 
 Resistor.propTypes = {
-  opacity: PropTypes.string,
-  colorCode: PropTypes.array,
+  opacity: PropTypes.number,
+  colorCode: PropTypes.object,
   solveColor: PropTypes.func,
   revertState: PropTypes.func,
   colorTolerance: PropTypes.string,
