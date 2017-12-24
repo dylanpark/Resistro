@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { calcResistance } from '../../../util/resistance-util.js';
+import { calculateResistance, convertToOhm, getValidInput } from '../../../util/resistance-util.js';
 
 export default class ColorInput extends React.Component {
 
@@ -34,45 +34,14 @@ export default class ColorInput extends React.Component {
   }
 
   updateResistor(e) {
-    var inputEl = e.target;
-    var cloneValue = inputEl.value;
+    let validInput = getValidInput(e.target.value);
+    let resistanceValue = convertToOhm(validInput) || validInput;
 
-    var prefixIndex, decimalIndex;
-    var resistanceValue;
-
-    for (var i = 0; i < cloneValue.length; i++) {
-      var isPrefixCharacter = (['k', 'K', 'M'].indexOf(cloneValue[i]) + 1);
-      if ((isNaN(parseInt(cloneValue[i])) && cloneValue[i] !== '.'
-          && !isPrefixCharacter)
-          || (cloneValue[i] === '.' && decimalIndex)
-          || (isPrefixCharacter && prefixIndex)
-          || (prefixIndex < i)) {
-        cloneValue = cloneValue.slice(0, i) + cloneValue.slice(i+1, cloneValue.length);
-      }
-
-      if (cloneValue[i] === '.') {
-        decimalIndex = i;
-      } else if (isPrefixCharacter) {
-        prefixIndex = i;
-        if (cloneValue[i] === 'k' || cloneValue[i] === 'K') {
-          resistanceValue = (parseFloat(cloneValue) * 1000).toString();
-        } else if (cloneValue[i] === 'M') {
-          resistanceValue = (parseFloat(cloneValue) * 1000000).toString();
-        }
-        if (decimalIndex + 1 === prefixIndex) {
-          cloneValue = cloneValue.slice(0, decimalIndex) +
-            cloneValue.slice(prefixIndex, prefixIndex + 1);
-        }
-      }
-    }
-
-    inputEl.value = cloneValue;
-    resistanceValue = resistanceValue || e.target.value;
-
+    e.target.value = validInput;
     this.setState({valueLength: e.target.value.length});
 
-    var resistance = calcResistance(resistanceValue);
-    resistance.inputValue = cloneValue;
+    let resistance = calculateResistance(resistanceValue);
+    resistance.inputValue = validInput;
     if (resistance.err) {
       this.props.findColorError(resistance);
     } else {
