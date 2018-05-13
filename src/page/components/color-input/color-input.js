@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { calculateResistance, convertToOhm, getValidInput } from '../../../util/resistance-util.js';
+import RESISTRO_UTILS from '../../../utils/resistro-utils.js';
 
 export default class ColorInput extends React.Component {
 
@@ -34,13 +34,13 @@ export default class ColorInput extends React.Component {
   }
 
   updateResistor(e) {
-    let validInput = getValidInput(e.target.value);
-    let resistanceValue = convertToOhm(validInput) || validInput;
+    let validInput = RESISTRO_UTILS.getValidInput(e.target.value);
+    let resistanceValue = RESISTRO_UTILS.convertToOhm(validInput) || validInput;
 
     e.target.value = validInput;
     this.setState({valueLength: e.target.value.length});
 
-    let resistance = calculateResistance(resistanceValue);
+    let resistance = RESISTRO_UTILS.calculateResistance(resistanceValue);
     resistance.inputValue = validInput;
     if (resistance.err) {
       this.props.findColorError(resistance);
