@@ -1,4 +1,4 @@
-import { MAP, MULT } from '../page/components/color-map';
+import { MAP, MULT } from 'utils/color-map';
 
 const prefixSymbolMap = {
   'k': 1000,

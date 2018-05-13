@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import { MAP, COLOR_MULT, TOLERANCE } from '../color-map';
+import { MAP, COLOR_MULT, TOLERANCE } from 'utils/color-map';
 
 export default class ColorPicker extends React.Component {
   render() {

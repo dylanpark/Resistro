@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import RESISTRO_UTILS from '../../../utils/resistro-utils.js';
+import RESISTRO_UTILS from 'utils/resistro-utils.js';
 
 export default class ColorInput extends React.Component {
 

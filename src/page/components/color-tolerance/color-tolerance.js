@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { TOLERANCE } from '../color-map';
-import ToleranceComponent from './tolerance-component';
+import { TOLERANCE } from 'utils/color-map';
+import ToleranceComponent from 'components/tolerance/tolerance-container';
 
 export default class ColorTolerance extends React.Component {
   constructor() {
