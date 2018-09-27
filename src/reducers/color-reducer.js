@@ -1,4 +1,4 @@
-import * as actionConst from '../actions/action-const';
+import * as actionConst from 'actions/action-const';
 
 const initialState = {
   output: {},

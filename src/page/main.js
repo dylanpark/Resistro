@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Resistor from './components/resistor';
-import ColorInput from './components/color-input/color-input';
-import ColorTolerance from './components/color-tolerance/color-tolerance.js';
-import Footer from './components/footer/footer.js'
+import Resistor from 'components/resistor/resistor';
+import ColorInput from 'components/color-input/color-input';
+import ColorTolerance from 'components/color-tolerance/color-tolerance.js';
+import Footer from 'components/footer/footer.js'
 
 export default class Main extends React.Component {
   render() {

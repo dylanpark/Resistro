@@ -1,4 +1,4 @@
-import * as actions from './action-const';
+import * as actions from 'actions/action-const';
 
 /*  
  *  Actions are for pipelining the data states between reducers and the webapp

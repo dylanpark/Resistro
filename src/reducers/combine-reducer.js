@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
 
-import inputReducer from './input-reducer';
-import colorReducer from './color-reducer';
+import inputReducer from 'reducers/input-reducer';
+import colorReducer from 'reducers/color-reducer';
 
 const reducer = combineReducers({inputReducer, colorReducer});
 

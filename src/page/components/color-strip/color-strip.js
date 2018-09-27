@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import ColorPicker from './color-picker';
-import { MAP, MULT, TOLERANCE } from '../color-map';
+import ColorPicker from 'components/color-picker/color-picker';
+import { MAP, MULT, TOLERANCE } from 'utils/color-map';
 
 export default class ColorStrip extends React.Component {
   constructor() {
