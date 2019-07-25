@@ -5,7 +5,7 @@
 
 Resistro is a react webapp designed to calculate resistor colour codes using an interactive interface.
 
-![resistro](https://i.imgur.com/7dq735U.gifv "Resistro Demo")
+![resistro](https://i.imgur.com/7dq735U.gif "Resistro Demo")
 
 
 ## Setup
