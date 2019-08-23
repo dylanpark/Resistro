@@ -1,11 +1,11 @@
-import { MAP, MULT } from 'utils/color-map';
+import { MAP, MULT } from './color-map';
 
 const prefixSymbolMap = {
   'k': 1000,
   'K': 1000,
   'M': 1000000,
   'G': 1000000000
-}
+};
 
 function isPrefixCharacter(c) {
   return c in prefixSymbolMap;

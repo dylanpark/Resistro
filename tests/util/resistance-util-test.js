@@ -1,4 +1,4 @@
-import { calculateResistance, getValidInput, convertToOhm } from '../../src/util/resistance-util'
+import { calculateResistance, getValidInput, convertToOhm } from '../../src/utils/resistro-utils'
 
 function createColorCode(a, b, c) {
   return {
