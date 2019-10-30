@@ -4,7 +4,7 @@
   "description": "a resistor webapp",
   "main": "webpack.config.js",
   "dependencies": {
-    "axios": "^0.13.1",
+    "axios": "^0.19.0",
     "history": "^2.1.2",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
